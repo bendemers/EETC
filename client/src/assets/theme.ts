@@ -12,10 +12,10 @@ const theme = createTheme({
       // light: will be calculated from palette.primary.main,
       // dark: will be calculated from palette.primary.main,
       // contrastText: will be calculated to contrast with palette.primary.main
-      main: COLORS.primaryBlue,
+      main: '#2F8FFF',
     },
     secondary: {
-      main: COLORS.secondarySeafoam,
+      main: '#D9D9D9',
     },
     // Used by `getContrastText()` to maximize the contrast between
     // the background and the text.
@@ -26,6 +26,29 @@ const theme = createTheme({
     tonalOffset: 0.2,
   },
   typography: {
+    h1: {
+      fontFamily: 'Inter',
+      fontStyle: 'normal',
+      fontWeight: 400,
+      fontSize: '30px',
+      lineHeight: '36px',
+      color: '#2F8FFF',
+      textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+    },
+    h2: {
+      fontFamily: 'Inter',
+      fontStyle: 'normal',
+      fontWeight: 400,
+      fontSize: '30px',
+      lineHeight: '22px',
+    },
+    button: {
+      textTransform: 'none',
+      fontFamily: 'Inter',
+      fontWeight: 400,
+      fontSize: '20px',
+      lineHeight: '15px',
+    },
     fontFamily: [
       'HK Grotesk',
       '-apple-system',
@@ -42,17 +65,24 @@ const theme = createTheme({
     ].join(','),
   },
   components: {
+    MuiButton: {
+      styleOverrides: {
+        contained: {
+          borderRadius: '15px',
+        },
+        outlined: {
+          borderRadius: '15px',
+        },
+      },
+    },
     MuiCssBaseline: {
       styleOverrides: {
         body: {
           letterSpacing: '0.3px',
           lineHeight: '1.5',
         },
-        h1: {
-          fontWeight: 'bold !important',
-        },
+        h1: {},
         h2: {
-          fontSize: '38px !important',
           marginBottom: '32px !important',
         },
         h3: {

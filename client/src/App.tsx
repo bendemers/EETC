@@ -22,6 +22,7 @@ import EmailResetPasswordPage from './Authentication/EmailResetPasswordPage';
 import ResetPasswordPage from './Authentication/ResetPasswordPage';
 import AlertPopup from './components/AlertPopup';
 import InviteRegisterPage from './Authentication/InviteRegisterPage';
+import NavBar from './components/NavBar';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <PersistGate loading={null} persistor={persistor}>
             <ThemeProvider theme={theme}>
               <CssBaseline>
+                <NavBar />
                 <AlertPopup />
                 <Routes>
                   {/* Routes accessed only if user is not authenticated */}
@@ -54,10 +56,8 @@ function App() {
                     path="/invite/:token"
                     element={<InviteRegisterPage />}
                   />
+                  <Route path="/home" element={<HomePage />} />
                   {/* Routes accessed only if user is authenticated */}
-                  <Route element={<ProtectedRoutesWrapper />}>
-                    <Route path="/home" element={<HomePage />} />
-                  </Route>
                   <Route element={<AdminRoutesWrapper />}>
                     <Route path="/users" element={<AdminDashboardPage />} />
                   </Route>
@@ -66,7 +66,7 @@ function App() {
                   <Route
                     path="/"
                     element={
-                      <DynamicRedirect unAuthPath="/login" authPath="/home" />
+                      <DynamicRedirect unAuthPath="/home" authPath="/home" />
                     }
                   />
 
