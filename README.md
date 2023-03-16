@@ -1,4 +1,4 @@
-# Boilerplate
+# EETC
 
 This is a simple boilerplate designed to serve as robust template for quickly starting development on a [Typescript](https://www.typescriptlang.org) based [MERN](https://www.mongodb.com/mern-stack) web application.
 
