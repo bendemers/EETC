@@ -100,7 +100,7 @@ function Navbar() {
             <Button variant="contained" color="primary">
               forum
             </Button>
-            <Button variant="contained" color="primary">
+            <Button href="/challenges" variant="contained" color="primary">
               challenges
             </Button>
             <Button variant="contained" color="primary">

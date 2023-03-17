@@ -23,6 +23,8 @@ import ResetPasswordPage from './Authentication/ResetPasswordPage';
 import AlertPopup from './components/AlertPopup';
 import InviteRegisterPage from './Authentication/InviteRegisterPage';
 import NavBar from './components/NavBar';
+import ChallengePage from './Challenge/ChallengePage';
+import ChallengesPage from './Challenges/ChallengesPages';
 
 function App() {
   return (
@@ -60,6 +62,12 @@ function App() {
                   {/* Routes accessed only if user is authenticated */}
                   <Route element={<AdminRoutesWrapper />}>
                     <Route path="/users" element={<AdminDashboardPage />} />
+                  </Route>
+                  <Route element={<ProtectedRoutesWrapper />}>
+                    <Route path="/challenges" element={<ChallengesPage />} />
+                  </Route>
+                  <Route element={<ProtectedRoutesWrapper />}>
+                    <Route path="/challenges/:id" element={<ChallengePage />} />
                   </Route>
 
                   {/* Route which redirects to a different page depending on if the user is an authenticated or not by utilizing the DynamicRedirect component */}
