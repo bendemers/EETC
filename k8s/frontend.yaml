@@ -21,7 +21,7 @@ spec:
           volumeMounts:
             - name: env-volume
               readOnly: true
-              mountPath: "/app/server/"
+              mountPath: '/app/server/'
 
   volumes:
     - name: env-volume
@@ -54,10 +54,10 @@ spec:
     - host: edutrading.dev
       http:
         paths:
-        - path: /
-          pathType: Prefix
-          backend:
-            service:
-              name: exchange-frontend
-              port:
-                number: 3000
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: exchange-frontend
+                port:
+                  number: 3000
