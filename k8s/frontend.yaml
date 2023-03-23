@@ -1,0 +1,63 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exchange-frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: exchange-frontend
+  template:
+    metadata:
+      labels:
+        app: exchange-frontend
+    spec:
+      containers:
+        - name: exchange
+          image: cphalen/exchange-frontend:${IMAGE_TAG}
+          ports:
+            - containerPort: 3000
+          volumeMounts:
+            - name: env-volume
+              readOnly: true
+              mountPath: "/app/server/"
+
+  volumes:
+    - name: env-volume
+      secret:
+        secretName: exchange-frontend-env
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: exchange-frontend
+spec:
+  selector:
+    app: exchange-frontend
+  ports:
+    - port: 3000
+  type: NodePort
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: frontend-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: lets-encrypt-prod
+spec:
+  tls:
+    - hosts:
+        - edutrading.dev
+      secretName: frontend-tls
+  rules:
+    - host: edutrading.dev
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: exchange-frontend
+              port:
+                number: 3000
