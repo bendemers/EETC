@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: exchange-frontend
 spec:
-  replicas: 4
+  replicas: 2
   selector:
     matchLabels:
       app: exchange-frontend
@@ -21,12 +21,12 @@ spec:
           volumeMounts:
             - name: env-volume
               readOnly: true
-              mountPath: '/app/server/'
-
-  volumes:
-    - name: env-volume
-      secret:
-        secretName: exchange-frontend-env
+              mountPath: '/app/server/.env'
+              subPath: '.env'
+      volumes:
+        - name: env-volume
+          secret:
+            secretName: exchange-frontend-env
 ---
 apiVersion: v1
 kind: Service
