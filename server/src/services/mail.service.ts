@@ -4,7 +4,7 @@
 import 'dotenv/config';
 import SGmail, { MailDataRequired } from '@sendgrid/mail';
 
-const appName = 'eduTrading'; // Replace with a relevant project name
+const appName = 'Edutrading'; // Replace with a relevant project name
 const senderName = 'EduTrading'; // Replace with a relevant project sender
 const baseUrl = process.env.PUBLIC_URL
   ? process.env.PUBLIC_URL

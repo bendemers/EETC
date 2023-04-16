@@ -97,13 +97,13 @@ function Navbar() {
               justifyContent: 'space-between',
             }}
           >
-            <Button variant="contained" color="primary">
+            <Button href="/forum" variant="contained" color="primary">
               forum
             </Button>
             <Button href="/challenges" variant="contained" color="primary">
               challenges
             </Button>
-            <Button variant="contained" color="primary">
+            <Button href="/home" variant="contained" color="primary">
               get started
             </Button>
             {user.email ? (
