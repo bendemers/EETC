@@ -48,7 +48,12 @@ function Navbar() {
 
   const navigate = useNavigate();
   const navigateChallenge = () => {
-    const path = `challenges`;
+    const path = `/challenges`;
+    navigate(path);
+  };
+
+  const navigateHome = () => {
+    const path = `/home`;
     navigate(path);
   };
 
@@ -96,7 +101,9 @@ function Navbar() {
       >
         <Toolbar>
           <Typography variant="h1" sx={{ flexGrow: 1, textAlign: 'left' }}>
-            <img src={logo} alt="" />
+            <Button onClick={navigateHome}>
+              <img src={logo} alt="" />
+            </Button>
           </Typography>
           <Box
             sx={{

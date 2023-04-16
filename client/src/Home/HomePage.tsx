@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, Typography, Button, ListItem, ListItemText } from '@mui/material';
+import { Box, Typography, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import ScreenGrid from '../components/ScreenGrid';
-
 import { useAppSelector } from '../util/redux/hooks';
 import { selectUser } from '../util/redux/userSlice';
 /**
@@ -10,6 +10,17 @@ import { selectUser } from '../util/redux/userSlice';
 function HomePage() {
   const user = useAppSelector(selectUser);
   const loggedIn = user.email;
+
+  const navigate = useNavigate();
+  const navigateChallenge = () => {
+    const path = `/challenges`;
+    navigate(path);
+  };
+
+  const navigateCreateAccount = () => {
+    const path = `/register`;
+    navigate(path);
+  };
 
   return (
     <Box
@@ -151,14 +162,22 @@ function HomePage() {
           <Typography variant="h2">
             Get Started Now!
             <br />
-            <Button variant="contained" sx={{ marginTop: '15px' }}>
+            <Button
+              variant="contained"
+              sx={{ marginTop: '15px' }}
+              onClick={navigateChallenge}
+            >
               See Challenges
             </Button>
           </Typography>
           <Typography variant="h2">
             Join Us!
             <br />
-            <Button variant="contained" sx={{ marginTop: '15px' }}>
+            <Button
+              variant="contained"
+              sx={{ marginTop: '15px' }}
+              onClick={navigateCreateAccount}
+            >
               Create an Account
             </Button>
           </Typography>

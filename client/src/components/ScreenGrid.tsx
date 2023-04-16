@@ -11,7 +11,7 @@ import { AnyChildren } from '../util/types/generic';
 function ScreenGrid({ children }: AnyChildren) {
   return (
     <Grid
-      sx={{ background: '#D9D9D9' }}
+      sx={{ background: 'inherit' }}
       container
       xs={12}
       height="100vh"
