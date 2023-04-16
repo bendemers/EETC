@@ -2,10 +2,15 @@ import React from 'react';
 import { Box, Typography, Button, ListItem, ListItemText } from '@mui/material';
 import ScreenGrid from '../components/ScreenGrid';
 
+import { useAppSelector } from '../util/redux/hooks';
+import { selectUser } from '../util/redux/userSlice';
 /**
  * The HomePage of the user dashboard. Displays a welcome message, a logout button and a button to promote the user to admin if they are not already an admin. If the user is an admin, the button will navigate them to the admin dashboard. This utilizes redux to access the current user's information.
  */
 function HomePage() {
+  const user = useAppSelector(selectUser);
+  const loggedIn = user.email;
+
   return (
     <Box
       sx={{

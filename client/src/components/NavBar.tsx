@@ -11,7 +11,6 @@ import {
   DialogContentText,
   DialogTitle,
   TextField,
-  FormControl,
   Link,
 } from '@mui/material';
 import { Box } from '@mui/system';
@@ -120,11 +119,21 @@ function Navbar() {
               get started
             </Button> */}
             {user.email ? (
-              <Button onClick={handleLogout} variant="outlined" color="primary">
+              <Button
+                sx={{ m: 1 }}
+                onClick={handleLogout}
+                variant="outlined"
+                color="primary"
+              >
                 logout
               </Button>
             ) : (
-              <Button onClick={loginFlow} variant="outlined" color="primary">
+              <Button
+                sx={{ m: 1 }}
+                onClick={loginFlow}
+                variant="outlined"
+                color="primary"
+              >
                 login
               </Button>
             )}
