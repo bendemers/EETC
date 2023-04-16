@@ -8,14 +8,17 @@ import 'typeface-hk-grotesk';
 // https://github.com/hack4impact/chapter-website-template/blob/main/public/style.css
 const theme = createTheme({
   palette: {
+    background: {
+      default: '#6E90F6',
+    },
     primary: {
       // light: will be calculated from palette.primary.main,
       // dark: will be calculated from palette.primary.main,
       // contrastText: will be calculated to contrast with palette.primary.main
-      main: '#2F8FFF',
+      main: '#c7deff',
     },
     secondary: {
-      main: '#D9D9D9',
+      main: '#FFFFFF',
     },
     // Used by `getContrastText()` to maximize the contrast between
     // the background and the text.
@@ -32,7 +35,7 @@ const theme = createTheme({
       fontWeight: 400,
       fontSize: '30px',
       lineHeight: '36px',
-      color: '#2F8FFF',
+      color: '#ffffff',
       textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
     },
     h2: {
@@ -41,6 +44,10 @@ const theme = createTheme({
       fontWeight: 400,
       fontSize: '30px',
       lineHeight: '22px',
+      color: '#c7deff',
+    },
+    subtitle2: {
+      color: '#c7deff',
     },
     button: {
       textTransform: 'none',

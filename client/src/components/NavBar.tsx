@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import {
   Typography,
   Toolbar,
@@ -14,6 +15,7 @@ import {
   Link,
 } from '@mui/material';
 import { Box } from '@mui/system';
+import { useNavigate } from 'react-router-dom';
 import { postData } from '../util/api';
 import { useAppDispatch, useAppSelector } from '../util/redux/hooks';
 import {
@@ -21,6 +23,7 @@ import {
   logout as logoutAction,
   login as loginRedux,
 } from '../util/redux/userSlice';
+import logo from '../assets/logo.png';
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -42,6 +45,12 @@ function Navbar() {
 
   const loginFlow = () => {
     setOpen(true);
+  };
+
+  const navigate = useNavigate();
+  const navigateChallenge = () => {
+    const path = `challenges`;
+    navigate(path);
   };
 
   const handleClose = () => {
@@ -84,28 +93,32 @@ function Navbar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="static"
-        sx={{ borderBottom: '1px solid #000', background: '#D9D9D9' }}
+        sx={{ borderBottom: '1px solid #000', background: 'inherit' }}
       >
         <Toolbar>
           <Typography variant="h1" sx={{ flexGrow: 1, textAlign: 'left' }}>
-            edutrading
+            <img src={logo} alt="" />
           </Typography>
           <Box
             sx={{
-              width: '450px',
+              width: '200px',
               display: 'flex',
               justifyContent: 'space-between',
             }}
           >
-            <Button variant="contained" color="primary">
+            {/* <Button variant="contained" color="primary">
               forum
-            </Button>
-            <Button variant="contained" color="primary">
+            </Button> */}
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={navigateChallenge}
+            >
               challenges
             </Button>
-            <Button variant="contained" color="primary">
+            {/* <Button variant="contained" color="primary">
               get started
-            </Button>
+            </Button> */}
             {user.email ? (
               <Button onClick={handleLogout} variant="outlined" color="primary">
                 logout
