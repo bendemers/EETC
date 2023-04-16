@@ -10,7 +10,6 @@ import {
   DialogContentText,
   DialogTitle,
   TextField,
-  FormControl,
   Link,
 } from '@mui/material';
 import { Box } from '@mui/system';
@@ -92,26 +91,49 @@ function Navbar() {
           </Typography>
           <Box
             sx={{
-              width: '450px',
               display: 'flex',
               justifyContent: 'space-between',
             }}
           >
-            <Button href="/forum" variant="contained" color="primary">
-              forum
-            </Button>
-            <Button href="/challenges" variant="contained" color="primary">
-              challenges
-            </Button>
-            <Button href="/home" variant="contained" color="primary">
+            {user.email && (
+              <>
+                <Button sx={{ m: 1 }} variant="contained" color="primary">
+                  forum
+                </Button>
+                <Button
+                  sx={{ m: 1 }}
+                  href="/challenges"
+                  variant="contained"
+                  color="primary"
+                >
+                  challenges
+                </Button>
+              </>
+            )}
+            <Button
+              sx={{ m: 1 }}
+              href="/home"
+              variant="contained"
+              color="primary"
+            >
               get started
             </Button>
             {user.email ? (
-              <Button onClick={handleLogout} variant="outlined" color="primary">
+              <Button
+                sx={{ m: 1 }}
+                onClick={handleLogout}
+                variant="outlined"
+                color="primary"
+              >
                 logout
               </Button>
             ) : (
-              <Button onClick={loginFlow} variant="outlined" color="primary">
+              <Button
+                sx={{ m: 1 }}
+                onClick={loginFlow}
+                variant="outlined"
+                color="primary"
+              >
                 login
               </Button>
             )}
