@@ -27,7 +27,6 @@ function HomePage() {
       sx={{
         background: 'inherit',
         width: '100%',
-        height: '210vh',
         padding: '50px',
       }}
     >
@@ -114,7 +113,6 @@ function HomePage() {
         <Box
           sx={{
             width: '50%',
-            height: '100vh',
             marginTop: '50px',
             padding: '50px',
             float: 'left',
@@ -152,7 +150,6 @@ function HomePage() {
         <Box
           sx={{
             width: '50%',
-            height: '100vh',
             marginTop: '60px',
             padding: '40px',
             float: 'right',
