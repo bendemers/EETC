@@ -17,7 +17,10 @@ spec:
         - name: exchange
           image: cphalen/exchange-frontend:${IMAGE_TAG}
           ports:
-            - containerPort: 3000
+            - name: clietn
+              containerPort: 3000
+            - name: server
+              containerPort: 4000
           volumeMounts:
             - name: env-volume
               readOnly: true
