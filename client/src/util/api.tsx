@@ -46,7 +46,7 @@ console.log(process.env);
 
 const BACKENDURL = process.env.PUBLIC_URL
   ? process.env.PUBLIC_URL
-  : 'https://edutrading.dev';
+  : 'http://localhost:4000';
 
 const URLPREFIX = `${BACKENDURL}/api`;
 
