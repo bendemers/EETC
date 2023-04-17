@@ -112,28 +112,24 @@ function Navbar() {
               justifyContent: 'space-between',
             }}
           >
-            {/* <Button variant="contained" color="primary">
-              forum
-            </Button> */}
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={navigateChallenge}
-            >
-              challenges
-            </Button>
-            {/* <Button variant="contained" color="primary">
-              get started
-            </Button> */}
             {user.email ? (
-              <Button
-                sx={{ m: 1 }}
-                onClick={handleLogout}
-                variant="outlined"
-                color="primary"
-              >
-                logout
-              </Button>
+              <>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={navigateChallenge}
+                >
+                  challenges
+                </Button>
+                <Button
+                  sx={{ m: 1 }}
+                  onClick={handleLogout}
+                  variant="outlined"
+                  color="primary"
+                >
+                  logout
+                </Button>
+              </>
             ) : (
               <Button
                 sx={{ m: 1 }}
